@@ -576,7 +576,25 @@
       </div>
     </div>
 
-<!--====== Contact Form Submission Script ======-->
+    <!--====== Jquery js ======-->
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--====== WOW js ======-->
+    <script src="assets/js/wow.min.js"></script>
+
+    <!--====== Scrolling Nav js ======-->
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
+
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+
+    <!--====== Contact Form Submission Script ======-->
     <script>
       document.getElementById('contact-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -608,23 +626,60 @@
         });
       });
     </script>
+    
+    <!--====== Contact Form URL Access ======-->
+    <script>
+      // Function to open contact modal
+      function openContactModal() {
+        $('#contactModal').modal('show');
+      }
 
-    <!--====== Jquery js ======-->
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+      // Check URL parameters and hash on page load
+      $(document).ready(function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hash = window.location.hash;
+        
+        // Open contact modal if URL contains contact parameter or hash
+        if (urlParams.get('contact') === 'true' || 
+            hash === '#contact' || 
+            hash === '#contact-form') {
+          openContactModal();
+        }
+      });
 
-    <!--====== Bootstrap js ======-->
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+      // Update URL when modal is opened
+      $('#contactModal').on('shown.bs.modal', function() {
+        // Add contact parameter to URL without page reload
+        const url = new URL(window.location);
+        url.searchParams.set('contact', 'true');
+        window.history.pushState({}, '', url);
+      });
 
-    <!--====== WOW js ======-->
-    <script src="assets/js/wow.min.js"></script>
+      // Remove contact parameter when modal is closed
+      $('#contactModal').on('hidden.bs.modal', function() {
+        // Remove contact parameter from URL
+        const url = new URL(window.location);
+        url.searchParams.delete('contact');
+        window.history.pushState({}, '', url.toString());
+      });
 
-    <!--====== Scrolling Nav js ======-->
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <script src="assets/js/scrolling-nav.js"></script>
-
-    <!--====== Main js ======-->
-    <script src="assets/js/main.js"></script>
+      // Handle browser back/forward buttons
+      window.addEventListener('popstate', function(event) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hash = window.location.hash;
+        
+        if (urlParams.get('contact') === 'true' || 
+            hash === '#contact' || 
+            hash === '#contact-form') {
+          if (!$('#contactModal').hasClass('show')) {
+            openContactModal();
+          }
+        } else {
+          if ($('#contactModal').hasClass('show')) {
+            $('#contactModal').modal('hide');
+          }
+        }
+      });
+    </script>
   </body>
 </html>
