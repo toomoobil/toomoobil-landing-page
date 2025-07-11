@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog - Toomoobil</title>
+    <meta
+      name="description"
+      content="Découvrez les dernières actualités et conseils de Toomoobil"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/png"
+    />
+
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="assets/css/animate.css" />
+
+    <!--====== lineicons CSS ======-->
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="assets/css/default.css" />
+
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      .blog-hero {
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      .blog-shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.7;
+      }
+
+      .blog-shape-1 {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(
+          45deg,
+          rgba(254, 132, 100, 0.6),
+          rgba(254, 110, 154, 0.6)
+        );
+        top: 15%;
+        left: 10%;
+        -webkit-animation: animation1 2s linear infinite;
+        -moz-animation: animation1 2s linear infinite;
+        -o-animation: animation1 2s linear infinite;
+        animation: animation1 2s linear infinite;
+      }
+
+      .blog-shape-2 {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          45deg,
+          rgba(51, 200, 193, 0.6),
+          rgba(17, 155, 210, 0.6)
+        );
+        top: 25%;
+        right: 15%;
+        -webkit-animation: animation1 2s linear infinite;
+        -moz-animation: animation1 2s linear infinite;
+        -o-animation: animation1 2s linear infinite;
+        animation: animation1 2s linear infinite;
+      }
+
+      .blog-shape-3 {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(
+          45deg,
+          rgba(137, 80, 228, 0.6),
+          rgba(108, 99, 255, 0.6)
+        );
+        bottom: 30%;
+        left: 20%;
+        -webkit-animation: animation1 2s linear infinite;
+        -moz-animation: animation1 2s linear infinite;
+        -o-animation: animation1 2s linear infinite;
+        animation: animation1 2s linear infinite;
+      }
+
+      .blog-shape-4 {
+        width: 50px;
+        height: 50px;
+        background: rgba(235, 163, 26, 0.6);
+        top: 40%;
+        right: 25%;
+        -webkit-animation: animation1 2s linear infinite;
+        -moz-animation: animation1 2s linear infinite;
+        -o-animation: animation1 2s linear infinite;
+        animation: animation1 2s linear infinite;
+      }
+
+      .blog-shape-5 {
+        width: 30px;
+        height: 30px;
+        background: rgba(229, 79, 79, 0.6);
+        bottom: 20%;
+        right: 10%;
+        -webkit-animation: animation1 2s linear infinite;
+        -moz-animation: animation1 2s linear infinite;
+        -o-animation: animation1 2s linear infinite;
+        animation: animation1 2s linear infinite;
+      }
+
+      .blog-shape-6 {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(
+          45deg,
+          rgba(54, 28, 193, 0.6),
+          rgba(46, 130, 239, 0.6)
+        );
+        top: 60%;
+        left: 5%;
+        -webkit-animation: animation1 2s linear infinite;
+        -moz-animation: animation1 2s linear infinite;
+        -o-animation: animation1 2s linear infinite;
+        animation: animation1 2s linear infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+        }
+        33% {
+          transform: translateY(-20px) scale(1.1);
+        }
+        66% {
+          transform: translateY(10px) scale(0.9);
+        }
+      }
+
+      .blog-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 30px;
+        height: 100%;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .blog-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 48px;
+      }
+
+      .blog-content {
+        padding: 25px;
+      }
+
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .blog-category {
+        background: #0898e7;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .blog-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #38424d;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .blog-excerpt {
+        color: #747e88;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .read-more {
+        color: #0898e7;
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .read-more:hover {
+        color: #0575b8;
+        text-decoration: none;
+      }
+
+      .blog-filters {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .filter-btn {
+        background: transparent;
+        border: 2px solid #0898e7;
+        color: #0898e7;
+        padding: 8px 20px;
+        border-radius: 25px;
+        margin: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: #0898e7;
+        color: white;
+      }
+
+      .no-articles {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+      }
+
+      @media (max-width: 767px) {
+        .blog-hero {
+          padding: 100px 0 60px;
+        }
+
+        .blog-shape {
+          opacity: 0.5;
+        }
+
+        .blog-shape-1 {
+          width: 60px;
+          height: 60px;
+        }
+        .blog-shape-2 {
+          width: 45px;
+          height: 45px;
+        }
+        .blog-shape-3 {
+          width: 30px;
+          height: 30px;
+        }
+        .blog-shape-4 {
+          width: 40px;
+          height: 40px;
+        }
+        .blog-shape-5 {
+          width: 25px;
+          height: 25px;
+        }
+        .blog-shape-6 {
+          width: 55px;
+          height: 55px;
+        }
+
+        .blog-title {
+          font-size: 18px;
+        }
+
+        .filter-btn {
+          padding: 6px 15px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--====== HEADER PART START ======-->
+    <header class="header-area">
+      <div class="navbar-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html">
+                  <img src="assets/images/logo.png" alt="Logo" />
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                </button>
+
+                <div
+                  class="collapse navbar-collapse sub-menu-bar"
+                  id="navbarSupportedContent"
+                >
+                  <ul id="nav" class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="index.html#why">À Propos</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="index.html#download">Télécharger</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="index.html?contact=true">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        target="_blank"
+                        href="https://www.instagram.com/toomoobil.ma"
+                        ><i class="lni lni-instagram"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--====== HEADER PART ENDS ======-->
+
+    <!--====== BLOG HERO PART START ======-->
+    <section class="blog-hero">
+      <div class="blog-shape blog-shape-1"></div>
+      <div class="blog-shape blog-shape-2"></div>
+      <div class="blog-shape blog-shape-3"></div>
+      <div class="blog-shape blog-shape-4"></div>
+      <div class="blog-shape blog-shape-5"></div>
+      <div class="blog-shape blog-shape-6"></div>
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h1
+              class="wow fadeInUp"
+              data-wow-duration="1.3s"
+              data-wow-delay="0.2s"
+            >
+              Blog Toomoobil
+            </h1>
+            <p
+              class="wow fadeInUp"
+              data-wow-duration="1.3s"
+              data-wow-delay="0.4s"
+            >
+              Découvrez nos dernières actualités, conseils et guides pour une
+              expérience de location optimale
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--====== BLOG HERO PART ENDS ======-->
+
+    <!--====== BLOG CONTENT PART START ======-->
+    <section class="pt-70 pb-120">
+      <div class="container">
+        <!-- Blog Filters -->
+        <div
+          class="blog-filters wow fadeInUp"
+          data-wow-duration="1.3s"
+          data-wow-delay="0.2s"
+        >
+          <button class="filter-btn active" data-category="all">Tous</button>
+          <button class="filter-btn" data-category="conseils">Conseils</button>
+          <button class="filter-btn" data-category="actualites">
+            Actualités
+          </button>
+          <button class="filter-btn" data-category="guides">Guides</button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+          <i
+            class="lni lni-spinner-arrow"
+            style="font-size: 24px; animation: spin 1s linear infinite"
+          ></i>
+          <p>Chargement des articles...</p>
+        </div>
+
+        <!-- Blog Articles -->
+        <div id="blog-container" class="row" style="display: none">
+          <!-- Articles will be loaded here -->
+        </div>
+
+        <!-- No Articles Message -->
+        <div id="no-articles" class="no-articles" style="display: none">
+          <i
+            class="lni lni-empty-file"
+            style="font-size: 48px; color: #ddd; margin-bottom: 20px"
+          ></i>
+          <h4>Aucun article trouvé</h4>
+          <p>Aucun article ne correspond à cette catégorie pour le moment.</p>
+        </div>
+      </div>
+    </section>
+    <!--====== BLOG CONTENT PART ENDS ======-->
+
+    <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+      <div class="footer-shape shape-1"></div>
+      <div class="footer-shape shape-2"></div>
+      <div class="footer-shape shape-3"></div>
+      <div class="footer-shape shape-4"></div>
+      <div class="footer-shape shape-5"></div>
+      <div class="footer-shape shape-6"></div>
+      <div class="footer-shape shape-7"></div>
+      <div class="footer-shape shape-8">
+        <img class="svg" src="assets/images/footer-shape.svg" alt="Shape" />
+      </div>
+
+      <div class="footer-widget pt-30 pb-80">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div
+                class="footer-about mt-50 wow fadeIn"
+                data-wow-duration="1.3s"
+                data-wow-delay="0.2s"
+              >
+                <a class="logo" href="index.html">
+                  <img src="assets/images/logo.png" alt="Logo" />
+                </a>
+                <p class="text">
+                  Réservez votre voiture en toute confiance, sécurisé et
+                  abordable.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div
+                class="footer-contact mt-45 wow fadeIn"
+                data-wow-duration="1.3s"
+                data-wow-delay="0.8s"
+              >
+                <div class="footer-title">
+                  <h4 class="title">Réseaux sociaux</h4>
+                </div>
+                <ul class="contact-list">
+                  <li>
+                    <div class="contact-info d-flex">
+                      <div class="info-content media-body">
+                        <p class="text">
+                          <a
+                            target="_blank"
+                            href="https://www.instagram.com/toomoobil.ma"
+                          >
+                            <i class="lni lni-instagram"></i> Instagram
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contact-info d-flex">
+                      <div class="info-content media-body">
+                        <p class="text">
+                          <i class="lni lni-whatsapp"></i> +212 6 27 96 05 96
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+    <style>
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script src="blog-articles.js"></script>
+    <script>
+      // Blog functionality
+      let allArticles = [];
+      let currentFilter = "all";
+
+      // Load articles from JSON
+      async function loadArticles() {
+        try {
+          allArticles = blogArticlesData.articles;
+          displayArticles(allArticles);
+          hideLoading();
+        } catch (error) {
+          console.error("Error loading articles:", error);
+          showNoArticles();
+          hideLoading();
+        }
+      }
+
+      // Display articles
+      function displayArticles(articles) {
+        const container = document.getElementById("blog-container");
+        const noArticlesDiv = document.getElementById("no-articles");
+
+        if (articles.length === 0) {
+          container.style.display = "none";
+          noArticlesDiv.style.display = "block";
+          return;
+        }
+
+        container.style.display = "flex";
+        noArticlesDiv.style.display = "none";
+
+        container.innerHTML = articles
+          .map(
+            (article) => `
+          <div class="col-lg-4 col-md-6" style="margin-bottom: 30px">
+            <article class="blog-card wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
+              <div class="blog-image">
+                ${
+                  article.image
+                    ? `<img src="${article.image}" alt="${article.title}">`
+                    : `<i class="lni lni-${getIconForCategory(
+                        article.category
+                      )}"></i>`
+                }
+              </div>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span class="blog-category">${getCategoryName(
+                    article.category
+                  )}</span>
+                  <span><i class="lni lni-calendar"></i> ${formatDate(
+                    article.date
+                  )}</span>
+                </div>
+                <h3 class="blog-title">${article.title}</h3>
+                <p class="blog-excerpt">${article.excerpt}</p>
+                <a href="#" class="read-more" onclick="openArticle('${
+                  article.id
+                }')">
+                  <a href="article.html?id=${article.id}" class="read-more">
+                    Lire la suite <i class="lni lni-arrow-right"></i>
+                  </a>
+                </a>
+              </div>
+            </article>
+          </div>
+        `
+          )
+          .join("");
+      }
+
+      // Filter articles
+      function filterArticles(category) {
+        currentFilter = category;
+
+        // Update active filter button
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        document
+          .querySelector(`[data-category="${category}"]`)
+          .classList.add("active");
+
+        // Filter and display articles
+        const filteredArticles =
+          category === "all"
+            ? allArticles
+            : allArticles.filter((article) => article.category === category);
+
+        displayArticles(filteredArticles);
+      }
+
+      // Helper functions
+      function getIconForCategory(category) {
+        const icons = {
+          conseils: "bulb",
+          actualites: "world",
+          guides: "book",
+        };
+        return icons[category] || "file";
+      }
+
+      function getCategoryName(category) {
+        const names = {
+          conseils: "Conseils",
+          actualites: "Actualités",
+          guides: "Guides",
+        };
+        return names[category] || category;
+      }
+
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("fr-FR", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      function hideLoading() {
+        document.getElementById("loading").style.display = "none";
+      }
+
+      function showNoArticles() {
+        document.getElementById("no-articles").style.display = "block";
+      }
+
+      function openArticle(articleId) {
+        window.location.href = `article.html?id=${articleId}`;
+      }
+
+      // Event listeners
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load articles
+        loadArticles();
+
+        // Filter buttons
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const category = this.getAttribute("data-category");
+            filterArticles(category);
+          });
+        });
+      });
+    </script>
+
+    <!--====== Jquery js ======-->
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--====== WOW js ======-->
+    <script src="assets/js/wow.min.js"></script>
+
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
