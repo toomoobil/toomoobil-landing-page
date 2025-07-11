@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title id="article-title">Article - Toomoobil</title>
+    <meta name="description" content="" id="article-description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/png"
+    />
+
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="assets/css/animate.css" />
+
+    <!--====== lineicons CSS ======-->
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="assets/css/default.css" />
+
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      .article-hero {
+        padding: 160px 0 0px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      .article-shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.7;
+      }
+
+      .article-shape-1 {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          45deg,
+          rgba(254, 132, 100, 0.6),
+          rgba(254, 110, 154, 0.6)
+        );
+        top: 20%;
+        left: 15%;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .article-shape-2 {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(
+          45deg,
+          rgba(51, 200, 193, 0.6),
+          rgba(17, 155, 210, 0.6)
+        );
+        top: 30%;
+        right: 20%;
+        animation: float 2.5s ease-in-out infinite 0.5s;
+      }
+
+      .article-shape-3 {
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(
+          45deg,
+          rgba(137, 80, 228, 0.6),
+          rgba(108, 99, 255, 0.6)
+        );
+        bottom: 40%;
+        left: 25%;
+        animation: float 2s ease-in-out infinite 1s;
+      }
+
+      .article-shape-4 {
+        width: 50px;
+        height: 50px;
+        background: rgba(235, 163, 26, 0.6);
+        top: 50%;
+        right: 30%;
+        animation: float 2.8s ease-in-out infinite 1.5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+        }
+        33% {
+          transform: translateY(-15px) scale(1.05);
+        }
+        66% {
+          transform: translateY(8px) scale(0.95);
+        }
+      }
+
+      .breadcrumb-nav {
+        /* background: #f8f9fa; */
+        padding: 15px 0;
+        /* border-bottom: 1px solid #e9ecef; */
+        display: none;
+      }
+
+      .breadcrumb {
+        background: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .breadcrumb-item + .breadcrumb-item::before {
+        content: "›";
+        color: #6c757d;
+        font-weight: bold;
+      }
+
+      .breadcrumb-item a {
+        color: #0898e7;
+        text-decoration: none;
+      }
+
+      .breadcrumb-item a:hover {
+        text-decoration: underline;
+      }
+
+      .breadcrumb-item.active {
+        color: #6c757d;
+      }
+
+      .article-content {
+        background: white;
+      }
+
+      .article-header {
+        margin-bottom: 40px;
+      }
+
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .article-category {
+        background: #0898e7;
+        color: white;
+        padding: 6px 16px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .article-date,
+      .article-author,
+      .article-read-time {
+        color: #666;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .article-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: #38424d;
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+
+      .article-excerpt {
+        font-size: 18px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .article-body {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #444;
+      }
+
+      .article-body h1,
+      .article-body h2,
+      .article-body h3,
+      .article-body h4,
+      .article-body h5,
+      .article-body h6 {
+        color: #38424d;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .article-body h2 {
+        font-size: 28px;
+        border-bottom: 2px solid #0898e7;
+        padding-bottom: 10px;
+      }
+
+      .article-body h3 {
+        font-size: 24px;
+      }
+
+      .article-body p {
+        margin-bottom: 20px;
+      }
+
+      .article-body ul,
+      .article-body ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+      }
+
+      .article-body li {
+        margin-bottom: 8px;
+      }
+
+      .article-body strong {
+        color: #38424d;
+        font-weight: 600;
+      }
+
+      .article-body code {
+        background: #f8f9fa;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        color: #e83e8c;
+      }
+
+      .back-to-blog {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #0898e7;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 30px;
+        transition: color 0.3s ease;
+      }
+
+      .back-to-blog:hover {
+        color: #0575b8;
+        text-decoration: none;
+      }
+
+      .related-articles {
+        background: #f8f9fa;
+        padding: 60px 0;
+      }
+
+      .related-card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+      }
+
+      .related-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .related-card h5 {
+        color: #38424d;
+        font-weight: 600;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .related-card p {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 15px;
+        line-height: 1.5;
+      }
+
+      .related-card .read-more {
+        color: #0898e7;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .related-card .read-more:hover {
+        text-decoration: underline;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 100px 20px;
+        color: #666;
+      }
+
+      .error-message {
+        text-align: center;
+        padding: 100px 20px;
+        color: #dc3545;
+      }
+
+      @media (max-width: 767px) {
+        .article-hero {
+          padding: 100px 0 0px;
+        }
+
+        .article-title {
+          font-size: 28px;
+        }
+
+        .article-excerpt {
+          font-size: 16px;
+        }
+
+        .article-meta {
+          gap: 15px;
+        }
+
+        .article-body h2 {
+          font-size: 24px;
+        }
+
+        .article-body h3 {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--====== HEADER PART START ======-->
+    <header class="header-area">
+      <div class="navbar-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html">
+                  <img src="assets/images/logo.png" alt="Logo" />
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                </button>
+
+                <div
+                  class="collapse navbar-collapse sub-menu-bar"
+                  id="navbarSupportedContent"
+                >
+                  <ul id="nav" class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="index.html#why">À Propos</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="index.html#download">Télécharger</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="index.html?contact=true">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        target="_blank"
+                        href="https://www.instagram.com/toomoobil.ma"
+                        ><i class="lni lni-instagram"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--====== HEADER PART ENDS ======-->
+
+    <!--====== ARTICLE HERO PART START ======-->
+    <section class="article-hero">
+      <div class="article-shape article-shape-1"></div>
+      <div class="article-shape article-shape-2"></div>
+      <div class="article-shape article-shape-3"></div>
+      <div class="article-shape article-shape-4"></div>
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <div class="article-header">
+              <div class="article-meta">
+                <span class="article-category" id="hero-category">Article</span>
+                <span class="article-date">
+                  <i class="lni lni-calendar"></i>
+                  <span id="hero-date">Date</span>
+                </span>
+                <span class="article-author">
+                  <i class="lni lni-user"></i>
+                  <span id="hero-author">Auteur</span>
+                </span>
+                <span class="article-read-time">
+                  <i class="lni lni-timer"></i>
+                  <span id="hero-read-time">Temps de lecture</span>
+                </span>
+              </div>
+              <h1 class="article-title" id="hero-title">Titre de l'article</h1>
+              <p class="article-excerpt" id="hero-excerpt">
+                Extrait de l'article...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--====== ARTICLE HERO PART ENDS ======-->
+
+    <!--====== BREADCRUMB PART START ======-->
+    <section class="breadcrumb-nav">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+            <li
+              class="breadcrumb-item active"
+              aria-current="page"
+              id="breadcrumb-title"
+            >
+              Article
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+    <!--====== BREADCRUMB PART ENDS ======-->
+
+    <!--====== ARTICLE CONTENT PART START ======-->
+    <section class="article-content">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+              <i
+                class="lni lni-spinner-arrow"
+                style="font-size: 24px; animation: spin 1s linear infinite"
+              ></i>
+              <p>Chargement de l'article...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error-message" style="display: none">
+              <i
+                class="lni lni-warning"
+                style="font-size: 48px; margin-bottom: 20px"
+              ></i>
+              <h4>Article non trouvé</h4>
+              <p>
+                L'article que vous recherchez n'existe pas ou a été supprimé.
+              </p>
+              <a href="blog.html" class="btn btn-primary">Retour au blog</a>
+            </div>
+
+            <!-- Article Content -->
+            <div id="article-content" style="display: none">
+              <div class="article-body" id="article-body">
+                <!-- Article content will be loaded here -->
+              </div>
+            </div>
+            <a href="blog.html" class="back-to-blog">
+              <i class="lni lni-arrow-left"></i>
+              Retour au blog
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--====== ARTICLE CONTENT PART ENDS ======-->
+
+    <!--====== RELATED ARTICLES PART START ======-->
+    <section
+      class="related-articles"
+      id="related-section"
+      style="display: none"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h3 class="text-center mb-50">Articles similaires</h3>
+          </div>
+        </div>
+        <div class="row" id="related-articles">
+          <!-- Related articles will be loaded here -->
+        </div>
+      </div>
+    </section>
+    <!--====== RELATED ARTICLES PART ENDS ======-->
+
+    <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+      <div class="footer-shape shape-1"></div>
+      <div class="footer-shape shape-2"></div>
+      <div class="footer-shape shape-3"></div>
+      <div class="footer-shape shape-4"></div>
+      <div class="footer-shape shape-5"></div>
+      <div class="footer-shape shape-6"></div>
+      <div class="footer-shape shape-7"></div>
+      <div class="footer-shape shape-8">
+        <img class="svg" src="assets/images/footer-shape.svg" alt="Shape" />
+      </div>
+
+      <div class="footer-widget pt-30 pb-80">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div
+                class="footer-about mt-50 wow fadeIn"
+                data-wow-duration="1.3s"
+                data-wow-delay="0.2s"
+              >
+                <a class="logo" href="index.html">
+                  <img src="assets/images/logo.png" alt="Logo" />
+                </a>
+                <p class="text">
+                  Réservez votre voiture en toute confiance, sécurisé et
+                  abordable.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div
+                class="footer-contact mt-45 wow fadeIn"
+                data-wow-duration="1.3s"
+                data-wow-delay="0.8s"
+              >
+                <div class="footer-title">
+                  <h4 class="title">Réseaux sociaux</h4>
+                </div>
+                <ul class="contact-list">
+                  <li>
+                    <div class="contact-info d-flex">
+                      <div class="info-content media-body">
+                        <p class="text">
+                          <a
+                            target="_blank"
+                            href="https://www.instagram.com/toomoobil.ma"
+                          >
+                            <i class="lni lni-instagram"></i> Instagram
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contact-info d-flex">
+                      <div class="info-content media-body">
+                        <p class="text">
+                          <i class="lni lni-whatsapp"></i> +212 6 27 96 05 96
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== BACK TO TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
+    <!--====== BACK TO TOP PART ENDS ======-->
+
+    <style>
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script src="blog-articles.js"></script>
+    <script>
+      // Article functionality
+      let allArticles = [];
+      let currentArticle = null;
+
+      // Get article ID from URL
+      function getArticleId() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("id");
+      }
+
+      // Load articles from JSON
+      async function loadArticles() {
+        try {
+          allArticles = blogArticlesData.articles;
+
+          const articleId = getArticleId();
+          if (articleId) {
+            displayArticle(articleId);
+          } else {
+            showError();
+          }
+        } catch (error) {
+          console.error("Error loading articles:", error);
+          showError();
+        }
+      }
+
+      // Display specific article
+      function displayArticle(articleId) {
+        currentArticle = allArticles.find(
+          (article) => article.id === articleId
+        );
+
+        if (!currentArticle) {
+          showError();
+          return;
+        }
+
+        // Update page title and meta
+        document.title = currentArticle.title + " - Toomoobil Blog";
+        document.getElementById("article-title").textContent =
+          currentArticle.title + " - Toomoobil Blog";
+        document
+          .getElementById("article-description")
+          .setAttribute("content", currentArticle.excerpt);
+
+        // Update hero section
+        document.getElementById("hero-category").textContent = getCategoryName(
+          currentArticle.category
+        );
+        document.getElementById("hero-date").textContent = formatDate(
+          currentArticle.date
+        );
+        document.getElementById("hero-author").textContent =
+          currentArticle.author;
+        document.getElementById("hero-read-time").textContent =
+          currentArticle.readTime;
+        document.getElementById("hero-title").textContent =
+          currentArticle.title;
+        document.getElementById("hero-excerpt").textContent =
+          currentArticle.excerpt;
+
+        // Update breadcrumb
+        document.getElementById("breadcrumb-title").textContent =
+          currentArticle.title;
+
+        // Update article content
+        document.getElementById("article-body").innerHTML =
+          formatArticleContent(currentArticle.content);
+
+        // Show article content
+        hideLoading();
+        document.getElementById("article-content").style.display = "block";
+
+        // Load related articles
+        loadRelatedArticles();
+      }
+
+      // Format article content (convert line breaks to HTML)
+      function formatArticleContent(content) {
+        return content
+          .split("\n\n")
+          .map((paragraph) => {
+            if (paragraph.trim() === "") return "";
+
+            // Check if it's a heading (starts with #)
+            if (paragraph.startsWith("# ")) {
+              return `<h2>${paragraph.substring(2)}</h2>`;
+            }
+
+            // Check if it's a subheading (starts with ##)
+            if (paragraph.startsWith("## ")) {
+              return `<h3>${paragraph.substring(3)}</h3>`;
+            }
+
+            // Check if it's a list (contains bullet points)
+            if (paragraph.includes("•") || paragraph.includes("✓")) {
+              const items = paragraph.split("\n").filter((line) => line.trim());
+              const listItems = items
+                .map((item) => `<li>${item.replace(/^[•✓]\s*/, "")}</li>`)
+                .join("");
+              return `<ul>${listItems}</ul>`;
+            }
+
+            // Regular paragraph
+            return `<p>${paragraph.replace(/\n/g, "<br>")}</p>`;
+          })
+          .join("");
+      }
+
+      // Load related articles
+      function loadRelatedArticles() {
+        const relatedArticles = allArticles
+          .filter(
+            (article) =>
+              article.id !== currentArticle.id &&
+              article.category === currentArticle.category
+          )
+          .slice(0, 3);
+
+        if (relatedArticles.length > 0) {
+          const relatedContainer = document.getElementById("related-articles");
+          relatedContainer.innerHTML = relatedArticles
+            .map(
+              (article) => `
+            <div class="col-lg-4 col-md-6 mb-30">
+              <div class="related-card">
+                <h5>${article.title}</h5>
+                <p>${article.excerpt}</p>
+                <a href="article.html?id=${article.id}" class="read-more">
+                  Lire l'article <i class="lni lni-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          `
+            )
+            .join("");
+
+          document.getElementById("related-section").style.display = "block";
+        }
+      }
+
+      // Helper functions
+      function getCategoryName(category) {
+        const names = {
+          conseils: "Conseils",
+          actualites: "Actualités",
+          guides: "Guides",
+        };
+        return names[category] || category;
+      }
+
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("fr-FR", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      function hideLoading() {
+        document.getElementById("loading").style.display = "none";
+      }
+
+      function showError() {
+        hideLoading();
+        document.getElementById("error").style.display = "block";
+      }
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        loadArticles();
+      });
+    </script>
+
+    <!--====== Jquery js ======-->
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--====== WOW js ======-->
+    <script src="assets/js/wow.min.js"></script>
+
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
