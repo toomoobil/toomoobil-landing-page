@@ -376,65 +376,90 @@
               data-wow-duration="1.3s"
               data-wow-delay="0.2s"
             >
-              Blog Toomoobil
+              Contactez-Nous
             </h1>
             <p
               class="wow fadeInUp"
               data-wow-duration="1.3s"
               data-wow-delay="0.4s"
             >
-              Découvrez nos dernières actualités, conseils et guides pour une
-              expérience de location optimale
+              Vous avez des questions ou des suggestions ? Nous serions ravis de
+              vous entendre !
             </p>
           </div>
         </div>
       </div>
     </section>
-    <!--====== BLOG HERO PART ENDS ======-->
-
-    <!--====== BLOG CONTENT PART START ======-->
     <section class="pt-70 pb-120">
-      <div class="container">
-        <!-- Blog Filters -->
+      <div class="container wow fadeInUp">
         <div
-          class="blog-filters wow fadeInUp"
-          data-wow-duration="1.3s"
-          data-wow-delay="0.2s"
+          class="row d-flex flex-wrap align-items-start justify-content-between"
         >
-          <button class="filter-btn active" data-category="all">Tous</button>
-          <button class="filter-btn" data-category="conseils">Conseils</button>
-          <button class="filter-btn" data-category="actualites">
-            Actualités
-          </button>
-          <button class="filter-btn" data-category="guides">Guides</button>
-        </div>
+          <!-- Contact Info -->
+          <div class="col-md-5 mb-4 mb-md-0 bg-white rounded-xl p-4">
+            <h2 class="h4 font-weight-bold text-dark mb-4">Contactez-Nous</h2>
 
-        <!-- Loading State -->
-        <div id="loading" class="loading">
-          <i
-            class="lni lni-spinner-arrow"
-            style="font-size: 24px; animation: spin 1s linear infinite"
-          ></i>
-          <p>Chargement des articles...</p>
-        </div>
+            <div class="mb-4">
+              <h5 class="font-weight-semibold text-dark mb-1">Email</h5>
+              <p class="text-muted mb-1">contact@toomoobil.ma</p>
+              <small class="text-secondary"
+                >Nous répondrons dans les 24 heures</small
+              >
+            </div>
 
-        <!-- Blog Articles -->
-        <div id="blog-container" class="row" style="display: none">
-          <!-- Articles will be loaded here -->
-        </div>
+            <div class="mb-4">
+              <h5 class="font-weight-semibold text-dark mb-1">WhatsApp</h5>
+              <p class="text-muted mb-1">+212 6 27 96 05 96</p>
+              <p class="text-muted mb-1">+33 7 57 44 56 77</p>
+              <small class="text-secondary">Disponible de 9h à 18h</small>
+            </div>
+          </div>
 
-        <!-- No Articles Message -->
-        <div id="no-articles" class="no-articles" style="display: none">
-          <i
-            class="lni lni-empty-file"
-            style="font-size: 48px; color: #ddd; margin-bottom: 20px"
-          ></i>
-          <h4>Aucun article trouvé</h4>
-          <p>Aucun article ne correspond à cette catégorie pour le moment.</p>
+          <!-- Contact Form -->
+          <div class="col-md-6 bg-white rounded-xl p-4">
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Nom</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <div
+                id="form-status"
+                class="text-success small mt-2 d-none"
+              ></div>
+              <button type="submit" class="btn btn-primary mt-3">
+                Envoyer
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
-    <!--====== BLOG CONTENT PART ENDS ======-->
 
     <!--====== FOOTER PART START ======-->
     <footer id="footer" class="footer-area">
@@ -529,154 +554,6 @@
         }
       }
     </style>
-    <script src="blog-articles.js"></script>
-    <script>
-      // Blog functionality
-      let allArticles = [];
-      let currentFilter = "all";
-
-      // Load articles from JSON
-      async function loadArticles() {
-        try {
-          allArticles = blogArticlesData.articles;
-          displayArticles(allArticles);
-          hideLoading();
-        } catch (error) {
-          console.error("Error loading articles:", error);
-          showNoArticles();
-          hideLoading();
-        }
-      }
-
-      // Display articles
-      function displayArticles(articles) {
-        const container = document.getElementById("blog-container");
-        const noArticlesDiv = document.getElementById("no-articles");
-
-        if (articles.length === 0) {
-          container.style.display = "none";
-          noArticlesDiv.style.display = "block";
-          return;
-        }
-
-        container.style.display = "flex";
-        noArticlesDiv.style.display = "none";
-
-        container.innerHTML = articles
-          .map(
-            (article) => `
-          <div class="col-lg-4 col-md-6" style="margin-bottom: 30px">
-            <article class="blog-card wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
-              <div class="blog-image">
-                ${
-                  article.image
-                    ? `<img src="${article.image}" alt="${article.title}">`
-                    : `<i class="lni lni-${getIconForCategory(
-                        article.category
-                      )}"></i>`
-                }
-              </div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span class="blog-category">${getCategoryName(
-                    article.category
-                  )}</span>
-                  <span><i class="lni lni-calendar"></i> ${formatDate(
-                    article.date
-                  )}</span>
-                </div>
-                <h3 class="blog-title">${article.title}</h3>
-                <p class="blog-excerpt">${article.excerpt}</p>
-                <a href="#" class="read-more" onclick="openArticle('${
-                  article.id
-                }')">
-                  <a href="article.html?id=${article.id}" class="read-more">
-                    Lire la suite <i class="lni lni-arrow-right"></i>
-                  </a>
-                </a>
-              </div>
-            </article>
-          </div>
-        `
-          )
-          .join("");
-      }
-
-      // Filter articles
-      function filterArticles(category) {
-        currentFilter = category;
-
-        // Update active filter button
-        document.querySelectorAll(".filter-btn").forEach((btn) => {
-          btn.classList.remove("active");
-        });
-        document
-          .querySelector(`[data-category="${category}"]`)
-          .classList.add("active");
-
-        // Filter and display articles
-        const filteredArticles =
-          category === "all"
-            ? allArticles
-            : allArticles.filter((article) => article.category === category);
-
-        displayArticles(filteredArticles);
-      }
-
-      // Helper functions
-      function getIconForCategory(category) {
-        const icons = {
-          conseils: "bulb",
-          actualites: "world",
-          guides: "book",
-        };
-        return icons[category] || "file";
-      }
-
-      function getCategoryName(category) {
-        const names = {
-          conseils: "Conseils",
-          actualites: "Actualités",
-          guides: "Guides",
-        };
-        return names[category] || category;
-      }
-
-      function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString("fr-FR", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
-      }
-
-      function hideLoading() {
-        document.getElementById("loading").style.display = "none";
-      }
-
-      function showNoArticles() {
-        document.getElementById("no-articles").style.display = "block";
-      }
-
-      function openArticle(articleId) {
-        window.location.href = `article.html?id=${articleId}`;
-      }
-
-      // Event listeners
-      document.addEventListener("DOMContentLoaded", function () {
-        // Load articles
-        loadArticles();
-
-        // Filter buttons
-        document.querySelectorAll(".filter-btn").forEach((btn) => {
-          btn.addEventListener("click", function () {
-            const category = this.getAttribute("data-category");
-            filterArticles(category);
-          });
-        });
-      });
-    </script>
 
     <!--====== Jquery js ======-->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
@@ -691,5 +568,52 @@
 
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
+
+    <!--====== Contact Form Submission Script ======-->
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const data = new FormData(form);
+
+          fetch("https://formspree.io/f/xeokbbol", {
+            method: "POST",
+            body: data,
+            headers: {
+              Accept: "application/json",
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                document.getElementById("form-status").textContent =
+                  "Merci ! Votre message a été envoyé.";
+                document
+                  .getElementById("form-status")
+                  .classList.remove("d-none", "text-danger");
+                document
+                  .getElementById("form-status")
+                  .classList.add("text-success");
+                form.reset();
+              } else {
+                return response.json().then((data) => {
+                  throw new Error(data.error || "Une erreur est survenue.");
+                });
+              }
+            })
+            .catch((error) => {
+              document.getElementById("form-status").textContent =
+                error.message;
+              document
+                .getElementById("form-status")
+                .classList.remove("d-none", "text-success");
+              document
+                .getElementById("form-status")
+                .classList.add("text-danger");
+            });
+        });
+    </script>
   </body>
 </html>
