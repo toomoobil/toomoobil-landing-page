@@ -274,17 +274,6 @@
     <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
     <!--====== BACK TOP TOP PART ENDS ======-->
 
-    <style>
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
-
     <!--====== Jquery js ======-->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
@@ -299,51 +288,5 @@
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
 
-    <!--====== Contact Form Submission Script ======-->
-    <script>
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const form = e.target;
-          const data = new FormData(form);
-
-          fetch("https://formspree.io/f/xeokbbol", {
-            method: "POST",
-            body: data,
-            headers: {
-              Accept: "application/json",
-            },
-          })
-            .then((response) => {
-              if (response.ok) {
-                document.getElementById("form-status").textContent =
-                  "Merci ! Votre message a été envoyé.";
-                document
-                  .getElementById("form-status")
-                  .classList.remove("d-none", "text-danger");
-                document
-                  .getElementById("form-status")
-                  .classList.add("text-success");
-                form.reset();
-              } else {
-                return response.json().then((data) => {
-                  throw new Error(data.error || "Une erreur est survenue.");
-                });
-              }
-            })
-            .catch((error) => {
-              document.getElementById("form-status").textContent =
-                error.message;
-              document
-                .getElementById("form-status")
-                .classList.remove("d-none", "text-success");
-              document
-                .getElementById("form-status")
-                .classList.add("text-danger");
-            });
-        });
-    </script>
   </body>
 </html>

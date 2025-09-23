@@ -528,20 +528,6 @@
 
     <!--====== BACK TOP TOP PART ENDS ======-->
 
-    <!--====== PART START ======-->
-
-    <!--
-    <section class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-"></div> 
-            </div>
-        </div>
-    </section>
--->
-
-    <!--====== PART ENDS ======-->
-
     <!-- Contact Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -595,37 +581,5 @@
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
 
-    <!--====== Contact Form Submission Script ======-->
-    <script>
-      document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const form = e.target;
-        const data = new FormData(form);
-
-        fetch('https://formspree.io/f/xeokbbol', {
-          method: 'POST',
-          body: data,
-          headers: {
-            'Accept': 'application/json'
-          }
-        }).then(response => {
-          if (response.ok) {
-            document.getElementById('form-status').textContent = 'Merci ! Votre message a été envoyé.';
-            document.getElementById('form-status').classList.remove('d-none', 'text-danger');
-            document.getElementById('form-status').classList.add('text-success');
-            form.reset();
-          } else {
-            return response.json().then(data => {
-              throw new Error(data.error || 'Une erreur est survenue.');
-            });
-          }
-        }).catch(error => {
-          document.getElementById('form-status').textContent = error.message;
-          document.getElementById('form-status').classList.remove('d-none', 'text-success');
-          document.getElementById('form-status').classList.add('text-danger');
-        });
-      });
-    </script>
   </body>
 </html>
