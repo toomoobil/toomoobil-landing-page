@@ -133,13 +133,13 @@
                       <a class="page-scroll" href="#why">À Propos</a>
                     </li>
                     <li class="nav-item">
-                      <a href="articles.html">Articles</a>
+                      <a class="page-scroll" href="#blog">Articles</a>
                     </li>
                     <li class="nav-item">
                       <a class="page-scroll" href="#download">Télécharger</a>
                     </li>
                     <li class="nav-item">
-                      <a href="contact.html">Contact</a>
+                      <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                   </ul>
                 </div>
@@ -345,6 +345,69 @@
 
     <!--====== SERVICES PART ENDS ======-->
 
+    <!--====== BLOG PART START ======-->
+
+    <section id="blog" class="pt-70 pb-120">
+      <div class="blog-hero">
+        <div class="blog-shape blog-shape-1"></div>
+        <div class="blog-shape blog-shape-2"></div>
+        <div class="blog-shape blog-shape-3"></div>
+        <div class="blog-shape blog-shape-4"></div>
+        <div class="blog-shape blog-shape-5"></div>
+        <div class="blog-shape blog-shape-6"></div>
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h1 class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
+                Blog Toomoobil
+              </h1>
+              <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">
+                Découvrez nos dernières actualités, conseils et guides pour une expérience de location optimale
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Blog Filters -->
+        <div class="blog-filters wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
+          <button class="filter-btn active" data-category="all">Tous</button>
+          <button class="filter-btn" data-category="conseils">Conseils</button>
+          <button class="filter-btn" data-category="actualites">Actualités</button>
+          <button class="filter-btn" data-category="guides">Guides</button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+          <i class="lni lni-spinner-arrow" style="font-size: 24px; animation: spin 1s linear infinite"></i>
+          <p>Chargement des articles...</p>
+        </div>
+
+        <!-- Blog Articles -->
+        <div id="blog-container" class="row" style="display: none">
+          <!-- Articles will be loaded here -->
+        </div>
+
+        <!-- No Articles Message -->
+        <div id="no-articles" class="no-articles" style="display: none">
+          <i class="lni lni-empty-file" style="font-size: 48px; color: #ddd; margin-bottom: 20px"></i>
+          <h4>Aucun article trouvé</h4>
+          <p>Aucun article ne correspond à cette catégorie pour le moment.</p>
+        </div>
+
+        <!-- CTA button to full blog page -->
+        <div class="text-center mt-8">
+          <a href="articles.html" class="btn btn-primary px-6 py-3 rounded-lg shadow-lg hover:bg-cyan-500 transition">
+            Voir tous les articles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--====== BLOG PART ENDS ======-->
+
     <!--====== DOWNLOAD PART START ======-->
 
     <section id="download" class="download-area pt-70 pb-40">
@@ -407,6 +470,78 @@
         <!-- row -->
       </div>
       <!-- container -->
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="pt-70 pb-120">
+      <div class="container wow fadeInUp">
+        <div
+          class="row d-flex flex-wrap align-items-start justify-content-between"
+        >
+          <!-- Contact Info -->
+          <div class="col-md-5 mb-4 mb-md-0 bg-white rounded-xl p-4">
+            <h2 class="h4 font-weight-bold text-dark mb-4">Contactez-Nous</h2>
+
+            <div class="mb-4">
+              <h5 class="font-weight-semibold text-dark mb-1">Email</h5>
+              <p class="text-muted mb-1">contact@toomoobil.ma</p>
+              <small class="text-secondary"
+                >Nous répondrons dans les 24 heures</small
+              >
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-weight-semibold text-dark mb-1">WhatsApp</h5>
+              <p class="text-muted mb-1">+212 6 27 96 05 96</p>
+              <p class="text-muted mb-1">+33 7 57 44 56 77</p>
+              <small class="text-secondary">Disponible de 9h à 18h</small>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="col-md-6 bg-white rounded-xl p-4">
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Nom</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <div
+                id="form-status"
+                class="text-success small mt-2 d-none"
+              ></div>
+              <button type="submit" class="btn btn-primary mt-3">
+                Envoyer
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!--====== DOWNLOAD PART ENDS ======-->
@@ -528,40 +663,7 @@
 
     <!--====== BACK TOP TOP PART ENDS ======-->
 
-    <!-- Contact Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="max-width: 90%;">
-          <form id="contact-form">
-            <div class="modal-header">
-              <h5 class="modal-title">Contactez-nous</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Adresse e-mail</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-              </div>
-              <div id="form-status" class="text-success small mt-2 d-none"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Envoyer</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <script src="./assets/js/blog-articles.js" defer></script>
 
     <!--====== Jquery js ======-->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
